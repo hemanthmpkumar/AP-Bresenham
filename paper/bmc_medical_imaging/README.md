@@ -14,6 +14,7 @@ This directory contains the submission-ready manuscript formatted according to *
 ## Manuscript Files
 | File | Description |
 | :--- | :--- |
+| `bmc_medical_imaging.docx` | **Editable source manuscript** (Microsoft Word format) with embedded high-resolution figures, structured abstract, styled tables, and formatted declarations. |
 | `bmc_medical_imaging.tex` | Full manuscript formatted with BMC structured abstract, double-spaced review format, continuous line numbering (`lineno`), and mandatory BMC declaration sections. |
 | `bmc_medical_imaging.pdf` | Compiled 16-page review-ready PDF. |
 | `references.bib` | Complete BibTeX bibliography with DOIs. |

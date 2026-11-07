@@ -8,15 +8,16 @@ BIBTEX   ?= /Library/TeX/texbin/bibtex
 PAPER_DIR = paper/icccs2027_conference
 PAPER_NAME = icccs2027_paper
 
-.PHONY: all paper dgmm icccs dme bmc test bench figures clean help
+.PHONY: all paper dgmm icccs dme bmc docx test bench figures clean help
 
-all: test bench figures icccs dme bmc
+all: test bench figures icccs dme bmc docx
 
 help:
 	@echo "AP-Bresenham Build and Verification Targets:"
 	@echo "  make paper    - Compile the IEEE conference paper (ICCCS) to PDF"
 	@echo "  make bmc      - Compile the BMC Medical Imaging (Springer) manuscript"
 	@echo "  make dme      - Compile the ACS Digital Medical Engineering submission package"
+	@echo "  make docx     - Generate editable Microsoft Word (.docx) manuscripts"
 	@echo "  make dgmm     - Compile the DGMM 2027 conference LaTeX paper to PDF"
 	@echo "  make icccs    - Compile the ICCCS 2027 IEEE conference paper to PDF"
 	@echo "  make test     - Run C++ and Python unit and property invariant tests"
@@ -30,6 +31,10 @@ paper: icccs
 bmc:
 	@echo ">>> Compiling BMC Medical Imaging Manuscript..."
 	@cd paper/bmc_medical_imaging && make paper
+
+docx:
+	@echo ">>> Generating Editable Word (.docx) Manuscripts..."
+	@python3 src/generate_docx_manuscripts.py
 
 dme:
 	@echo ">>> Compiling ACS Digital Medical Engineering Package..."
