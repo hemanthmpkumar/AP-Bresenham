@@ -1167,10 +1167,168 @@ def build_acs_si_docx(output_path):
     doc.save(output_path)
     print(f"✓ Generated ACS Supporting Information Word Document: {output_path}")
 
+def build_cover_letter_docx(output_path, journal_name, publisher, eic_email=None):
+    doc = Document()
+    
+    # 1-inch margins
+    for section in doc.sections:
+        section.top_margin = Inches(1.0)
+        section.bottom_margin = Inches(1.0)
+        section.left_margin = Inches(1.0)
+        section.right_margin = Inches(1.0)
+        section.page_width = Inches(8.5)
+        section.page_height = Inches(11.0)
+    
+    style = doc.styles['Normal']
+    font = style.font
+    font.name = 'Calibri'
+    font.size = Pt(11)
+    font.color.rgb = RGBColor(0x22, 0x22, 0x22)
+    style.paragraph_format.line_spacing = 1.15
+    style.paragraph_format.space_after = Pt(6)
+    
+    # Date
+    from datetime import date
+    p_date = doc.add_paragraph()
+    r = p_date.add_run(f"Date: {date.today().strftime('%B %d, %Y')}")
+    r.bold = True
+    
+    # To Address
+    p_to = doc.add_paragraph()
+    p_to.paragraph_format.space_after = Pt(10)
+    r_to_lbl = p_to.add_run("To:\n")
+    r_to_lbl.bold = True
+    p_to.add_run(f"Editor-in-Chief\n{journal_name}\n{publisher}\n")
+    if eic_email:
+        p_to.add_run(f"Email: {eic_email}\n")
+        
+    # Subject
+    p_subj = doc.add_paragraph()
+    p_subj.paragraph_format.space_before = Pt(4)
+    p_subj.paragraph_format.space_after = Pt(10)
+    r_s_lbl = p_subj.add_run("Subject: ")
+    r_s_lbl.bold = True
+    r_s_txt = p_subj.add_run("Submission of Original Research Article: \"Topologically Exact 3D/2D Line and Ray Clipping for Distributed CT and MRI Volume Computing: The Analytical Phase-Compensated Bresenham Algorithm\"")
+    r_s_txt.bold = True
+    r_s_txt.font.color.rgb = RGBColor(0x11, 0x33, 0x66)
+    
+    # Salutation
+    p_sal = doc.add_paragraph()
+    p_sal.paragraph_format.space_after = Pt(8)
+    p_sal.add_run("Dear Editor-in-Chief,")
+    
+    # Intro
+    p_intro = doc.add_paragraph()
+    p_intro.add_run(
+        f"I am pleased to submit our original research manuscript entitled \"Topologically Exact 3D/2D Line and Ray Clipping "
+        f"for Distributed CT and MRI Volume Computing: The Analytical Phase-Compensated Bresenham Algorithm\" for consideration "
+        f"for publication as a regular Research Article in {journal_name}."
+    )
+    
+    # Scope & Significance
+    doc.add_heading(f"Scope and Significance for {journal_name}", level=2)
+    p_sc = doc.add_paragraph()
+    p_sc.add_run(
+        "High-resolution 3D volumetric medical imaging—including Computed Tomography (CT), Magnetic Resonance Imaging (MRI), "
+        "and PET/CT multi-modality scanning—demands spatial grid partitioning across distributed GPU clusters, MPI ranks, or tiled cache "
+        "blocks to process massive voxel arrays (512³ to 1024³ voxels). Existing ray traversal pipelines clip continuous trajectories "
+        "against sub-volume bounding boxes and round boundary intersections to integer coordinates to reseed standard Bresenham steppers.\n\n"
+        "In this work, we reveal that this conventional decoupled clipping strategy fundamentally resets fractional error accumulators, "
+        "inducing a Bresenham Phase-Shift Phenomenon that corrupts voxel traversal paths across over 99.7% of boundary-crossing rays. "
+        "In iterative tomographic reconstruction (SART, SIRT, MLEM), this introduces line-integral attenuation errors reaching up to "
+        "15.94 cm⁻¹ (RMSE = 8.9049, PSNR = 14.99 dB on 512 sub-volumes) and corrupts 90.17% to 92.20% of detector bins in full clinical sinogram "
+        "projections of human CT and brain MRI scans, producing severe boundary streak and ring artifacts that impair diagnostic precision and mathematical convergence."
+    )
+    
+    # Key Advances
+    doc.add_heading("Key Advances Relative to the State-of-the-Art", level=2)
+    advances = [
+        ("Closed-Form Diophantine Dynamics: ", "We derive the exact analytical equations governing multi-dimensional digital straight lines, establishing closed-form formulations for discrete coordinates and internal accumulator states."),
+        ("Pure-Integer O(1) Boundary Inversion: ", "We formulate exact O(1) boundary inversion formulas directly in ℤ, completely avoiding floating-point rounding errors and iterative searches."),
+        ("Analytical Historical Phase Injection: ", "We analytically restore the exact fractional accumulator state at any entry boundary in O(1) time, guaranteeing 100% bit-level equivalence to monolithic traversal without requiring inter-node communication or ghost-cell buffers."),
+        ("Extensive Clinical Patient Validation: ", "Evaluated across synthetic Shepp-Logan phantoms, multi-compartment brain MRI models, and open clinical acquisitions (human abdominal CT and MNI-152 brain MRI) partitioned into up to 512 sub-volumes, AP-Bresenham completely eliminates seam artifacts, achieves exact Radon line-integral conservation (RMSE = 0.0000, PSNR = ∞), and delivers a 1.2×–1.6× setup speedup over floating-point clippers.")
+    ]
+    for idx, (lbl, txt) in enumerate(advances, 1):
+        p = doc.add_paragraph()
+        p.paragraph_format.left_indent = Inches(0.25)
+        p.paragraph_format.space_after = Pt(3)
+        r_num = p.add_run(f"{idx}. {lbl}")
+        r_num.bold = True
+        p.add_run(txt)
+        
+    # Disclosures
+    doc.add_heading("Declarations, Prior Publication, and Data Disclosure", level=2)
+    disclosures = [
+        "Originality: This manuscript represents original work that has not been previously published in any peer-reviewed venue and is not under consideration for publication elsewhere.",
+        "Ethics and Consent: Not applicable. This computational study evaluates mathematical phantoms and publicly available, anonymized open-access imaging datasets.",
+        "Open Source & Reproducibility: All software implementations (C++17 and Python), test suites (10 invariant suites, 11,000+ verification cases), reproducible benchmarks, and clinical projection scripts are open-source and publicly accessible on GitHub at: https://github.com/hemanthmpkumar/AP-Bresenham.",
+        "Competing Interests & Funding: The author declares that he has no competing financial or non-financial interests. No external funding was received for this study."
+    ]
+    for disc in disclosures:
+        p = doc.add_paragraph()
+        p.paragraph_format.left_indent = Inches(0.25)
+        p.paragraph_format.space_after = Pt(3)
+        lbl, rest = disc.split(":", 1)
+        r_lbl = p.add_run(f"• {lbl}:")
+        r_lbl.bold = True
+        p.add_run(rest)
+        
+    # Suggested Reviewers
+    doc.add_heading("Suggested Independent International Reviewers", level=2)
+    p_rev_intro = doc.add_paragraph()
+    p_rev_intro.add_run(
+        f"In accordance with {journal_name} submission requirements, I provide five suggested independent expert reviewers "
+        "who possess recognized expertise in discrete geometry, volumetric ray tracing, and medical image reconstruction. "
+        "None of the proposed reviewers have been collaborators, co-authors, mentors, or mentees of the author within the past five years."
+    )
+    
+    reviewers = [
+        ("Prof. David Coeurjolly", "CNRS, LIRIS, Université de Lyon, France", "Discrete Geometry, Digital Straight Lines, Digital Topology, Computational Imaging", "david.coeurjolly@liris.cnrs.fr"),
+        ("Prof. Emil Y. Sidky", "Department of Radiology, The University of Chicago, USA", "Computed Tomography Reconstruction Algorithms, Forward Projectors, Artifact Modeling", "sidky@uchicago.edu"),
+        ("Prof. Gabor T. Herman", "Department of Computer Science, City University of New York (CUNY), USA", "Discrete Tomography, Algebraic Reconstruction Techniques (ART), Volume Computing", "gherman@gc.cuny.edu"),
+        ("Prof. Vaclav Skala", "Department of Computer Science and Engineering, University of West Bohemia, Czech Republic", "Geometric Clipping Algorithms, Projective Coordinates, High-Performance Rasterization", "skala@kiv.zcu.cz"),
+        ("Prof. Bruno Sixou", "INSA Lyon, CREATIS, CNRS UMR 5220, France", "Tomographic Image Reconstruction, Discrete Optimization, Radiological Path Traversal", "bruno.sixou@creatis.insa-lyon.fr")
+    ]
+    
+    for idx, (name, aff, exp, email) in enumerate(reviewers, 1):
+        p = doc.add_paragraph()
+        p.paragraph_format.left_indent = Inches(0.25)
+        p.paragraph_format.space_after = Pt(2)
+        r_name = p.add_run(f"{idx}. {name}")
+        r_name.bold = True
+        
+        p_det = doc.add_paragraph()
+        p_det.paragraph_format.left_indent = Inches(0.45)
+        p_det.paragraph_format.space_after = Pt(4)
+        p_det.add_run(f"• Affiliation: {aff}\n• Expertise: {exp}\n• Email: {email}")
+        
+    # Closing
+    p_close = doc.add_paragraph()
+    p_close.paragraph_format.space_before = Pt(8)
+    p_close.paragraph_format.space_after = Pt(12)
+    p_close.add_run("Thank you very much for your time and consideration of our manuscript.")
+    
+    p_sig = doc.add_paragraph()
+    p_sig.paragraph_format.space_after = Pt(2)
+    p_sig.add_run("Sincerely,")
+    
+    p_auth_blk = doc.add_paragraph()
+    p_auth_blk.paragraph_format.space_before = Pt(8)
+    p_auth_blk.paragraph_format.space_after = Pt(0)
+    r_an = p_auth_blk.add_run("Hemanth Manchabale Papachappa\n")
+    r_an.bold = True
+    p_auth_blk.add_run("Independent Researcher\nSeattle, Washington, USA\nEmail: hemathmpkumar123@gmail.com\nORCID: 0009-0007-1398-9451")
+    
+    doc.save(output_path)
+    print(f"✓ Generated Word Cover Letter: {output_path}")
+
 if __name__ == "__main__":
     os.makedirs("paper/bmc_medical_imaging", exist_ok=True)
     os.makedirs("paper/acs_digital_medical_engineering", exist_ok=True)
     build_bmc_docx("paper/bmc_medical_imaging/bmc_medical_imaging.docx")
+    build_cover_letter_docx("paper/bmc_medical_imaging/cover_letter.docx", "BMC Medical Imaging", "BioMed Central, Springer Nature")
     build_acs_docx("paper/acs_digital_medical_engineering/main_manuscript.docx")
     build_acs_si_docx("paper/acs_digital_medical_engineering/supporting_information.docx")
+    build_cover_letter_docx("paper/acs_digital_medical_engineering/cover_letter.docx", "ACS Digital Medical Engineering", "American Chemical Society", eic_email="eic@dme.acs.org")
+
 

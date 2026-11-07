@@ -15,6 +15,8 @@ This directory contains the submission-ready manuscript formatted according to *
 | File | Description |
 | :--- | :--- |
 | `bmc_medical_imaging.docx` | **Editable source manuscript** (Microsoft Word format) with embedded high-resolution figures, structured abstract, styled tables, and formatted declarations. |
+| `cover_letter.docx` | **Editable Cover Letter** (Microsoft Word format) addressed to the Editor-in-Chief. |
+| `cover_letter.tex` / `.pdf` | Formal Cover Letter addressed to the Editor-in-Chief of *BMC Medical Imaging* (Springer Nature), detailing clinical scope, key contributions, open data disclosures, and 5 suggested independent international reviewers. |
 | `bmc_medical_imaging.tex` | Full manuscript formatted with BMC structured abstract, double-spaced review format, continuous line numbering (`lineno`), and mandatory BMC declaration sections. |
 | `bmc_medical_imaging.pdf` | Compiled 16-page review-ready PDF. |
 | `references.bib` | Complete BibTeX bibliography with DOIs. |
