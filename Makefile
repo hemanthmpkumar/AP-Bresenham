@@ -5,16 +5,16 @@
 PDFLATEX ?= /Library/TeX/texbin/pdflatex
 BIBTEX   ?= /Library/TeX/texbin/bibtex
 
-PAPER_DIR = paper/extended_journal
-PAPER_NAME = ap_bresenham_extended
+PAPER_DIR = paper/icccs2027_conference
+PAPER_NAME = icccs2027_paper
 
 .PHONY: all paper dgmm icccs test bench figures clean help
 
-all: test bench figures paper
+all: test bench figures icccs
 
 help:
 	@echo "AP-Bresenham Build and Verification Targets:"
-	@echo "  make paper    - Compile the extended journal LaTeX paper to PDF"
+	@echo "  make paper    - Compile the IEEE conference paper (ICCCS) to PDF"
 	@echo "  make dgmm     - Compile the DGMM 2027 conference LaTeX paper to PDF"
 	@echo "  make icccs    - Compile the ICCCS 2027 IEEE conference paper to PDF"
 	@echo "  make test     - Run C++ and Python unit and property invariant tests"
@@ -23,13 +23,7 @@ help:
 	@echo "  make all      - Execute test, bench, figures, and paper compilation"
 	@echo "  make clean    - Remove build artifacts and temporary files"
 
-paper:
-	@echo ">>> Compiling LaTeX Journal Paper ($(PAPER_NAME).pdf)..."
-	@cd $(PAPER_DIR) && $(PDFLATEX) -interaction=nonstopmode $(PAPER_NAME).tex > /dev/null
-	@cd $(PAPER_DIR) && $(BIBTEX) $(PAPER_NAME) > /dev/null
-	@cd $(PAPER_DIR) && $(PDFLATEX) -interaction=nonstopmode $(PAPER_NAME).tex > /dev/null
-	@cd $(PAPER_DIR) && $(PDFLATEX) -interaction=nonstopmode $(PAPER_NAME).tex > /dev/null
-	@echo "✓ Paper compiled successfully: $(PAPER_DIR)/$(PAPER_NAME).pdf"
+paper: icccs
 
 dgmm:
 	@echo ">>> Compiling DGMM 2027 Conference Paper..."

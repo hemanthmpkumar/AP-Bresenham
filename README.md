@@ -3,7 +3,7 @@
 
 [![Language: C++17](https://img.shields.io/badge/Language-C%2B%2B17-blue.svg)](src/cpp/)
 [![Language: Python 3](https://img.shields.io/badge/Language-Python%203-green.svg)](src/python/)
-[![Paper: 28 Pages PDF](https://img.shields.io/badge/Paper-28%20Pages%20PDF-red.svg)](paper/extended_journal/ap_bresenham_extended.pdf)
+[![Paper: IEEE PDF](https://img.shields.io/badge/Paper-IEEE%20PDF-red.svg)](paper/icccs2027_conference/icccs2027_paper.pdf)
 [![Status: 100% Bit-Identical](https://img.shields.io/badge/Topology-100%25%20Exact-brightgreen.svg)](src/tests/)
 
 ---
@@ -36,18 +36,15 @@ AP-Bresenham resolves this challenge by deriving the closed-form Diophantine sta
 ```text
 2Dlineclipping/
 ├── paper/                                  # Research manuscripts & LaTeX source
-│   ├── extended_journal/
-│   │   ├── ap_bresenham_extended.tex       # Full 28-page journal manuscript source
-│   │   ├── ap_bresenham_extended.pdf       # Compiled 28-page PDF
-│   │   └── references_extended.bib         # 38 complete citations (1965–2024)
-│   ├── dgmm2027_conference/
-│   │   ├── dgmm2027_paper.tex              # 12-page DGMM 2027 conference submission
-│   │   └── references.bib
 │   ├── icccs2027_conference/
 │   │   ├── icccs2027_paper.tex             # IEEE Conference format submission (ICCCS 2027)
+│   │   ├── icccs2027_paper.pdf             # Compiled publication PDF
 │   │   ├── references.bib                  # BibTeX references
 │   │   ├── Makefile                        # Standalone LaTeX build makefile
 │   │   └── README.md                       # Conference & submission details
+│   ├── dgmm2027_conference/
+│   │   ├── dgmm2027_paper.tex              # 12-page DGMM 2027 conference submission
+│   │   └── references.bib
 │   └── drafts/
 │       └── AP_Bresenham_Paper_Draft.md     # Markdown working draft
 │
@@ -96,10 +93,10 @@ AP-Bresenham resolves this challenge by deriving the closed-form Diophantine sta
 ./src/run_all.sh
 ```
 
-### 2. Compile Journal Paper
+### 2. Compile Conference Paper
 ```bash
 make paper
-# Output written to: paper/extended_journal/ap_bresenham_extended.pdf
+# Output written to: paper/icccs2027_conference/icccs2027_paper.pdf
 ```
 
 ### 3. Run Unit and Property Tests
@@ -138,5 +135,5 @@ make figures
 
 ## 📜 Citations & Venue Targets
 
-* **Extended Journal Manuscript (28 Pages)**: [`paper/extended_journal/ap_bresenham_extended.pdf`](paper/extended_journal/ap_bresenham_extended.pdf)
-* **Conference Paper (12 Pages)**: [`paper/dgmm2027_conference/dgmm2027_paper.tex`](paper/dgmm2027_conference/dgmm2027_paper.tex) (Target: *5th IAPR International Conference on Discrete Geometry and Mathematical Morphology*, DGMM 2027).
+* **Primary Conference Paper (IEEE Format)**: [`paper/icccs2027_conference/icccs2027_paper.pdf`](paper/icccs2027_conference/icccs2027_paper.pdf)
+* **Discrete Geometry Conference Paper (12 Pages)**: [`paper/dgmm2027_conference/dgmm2027_paper.tex`](paper/dgmm2027_conference/dgmm2027_paper.tex) (Target: *5th IAPR International Conference on Discrete Geometry and Mathematical Morphology*, DGMM 2027).
