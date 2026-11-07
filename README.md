@@ -36,6 +36,11 @@ AP-Bresenham resolves this challenge by deriving the closed-form Diophantine sta
 ```text
 2Dlineclipping/
 ├── paper/                                  # Research manuscripts & LaTeX source
+│   ├── bmc_medical_imaging/                # BMC Medical Imaging (Springer Nature journal)
+│   │   ├── bmc_medical_imaging.tex / .pdf  # Full manuscript (BMC structured abstract & declarations)
+│   │   ├── references.bib                  # BibTeX bibliography
+│   │   ├── Makefile                        # Standalone build automation
+│   │   └── README.md                       # BMC author checklist & guidelines
 │   ├── acs_digital_medical_engineering/    # ACS Digital Medical Engineering (Fast Format submission package)
 │   │   ├── main_manuscript.tex / .pdf      # Main research article (1.5 spaced, line numbers)
 │   │   ├── supporting_information.tex/.pdf # Standalone Supporting Information (SI)
@@ -100,10 +105,16 @@ AP-Bresenham resolves this challenge by deriving the closed-form Diophantine sta
 ./src/run_all.sh
 ```
 
-### 2. Compile Conference Paper
+### 2. Compile Manuscripts
 ```bash
+# Compile IEEE conference paper (ICCCS 2027)
 make paper
-# Output written to: paper/icccs2027_conference/icccs2027_paper.pdf
+
+# Compile BMC Medical Imaging (Springer Nature) manuscript
+make bmc
+
+# Compile ACS Digital Medical Engineering submission package
+make dme
 ```
 
 ### 3. Run Unit and Property Tests

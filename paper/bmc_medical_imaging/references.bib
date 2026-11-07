@@ -1,0 +1,673 @@
+% ============================================================
+%  references.bib
+%  Full bibliography for AP-Bresenham ICCCS 2027 paper
+% ============================================================
+
+@IEEEtranBSTCTL{IEEEexample:BSTcontrol,
+  CTLuse_article_number = "yes",
+  CTLuse_paper          = "yes",
+  CTLuse_forced_etal    = "yes",
+  CTLmax_names_forced_etal = "4",
+  CTLnames_show_etal    = "1",
+  CTLuse_alt_spacing    = "yes",
+  CTLalt_stretch_factor = "4",
+  CTLdash_repeated_names= "yes",
+  CTLname_format_string = "{f.~}{vv~}{ll}{, jj}",
+  CTLname_latex_cmd     = "",
+  CTLname_url_prefix    = "[Online]. Available:",
+  CTLuse_doi            = "no",
+  CTLuse_url            = "no"
+}
+
+%% ---- Foundational Rasterization ----
+
+@article{bresenham1965algorithm,
+  author    = {Jack E. Bresenham},
+  title     = {Algorithm for computer control of a digital plotter},
+  journal   = {{IBM} Systems Journal},
+  volume    = {4},
+  number    = {1},
+  pages     = {25--30},
+  year      = {1965},
+  doi       = {10.1147/sj.41.0025},
+  publisher = {IBM}
+}
+
+@article{cohen1967clipping,
+  author    = {Danny Cohen and Robert F. Sproull},
+  title     = {An Algorithm for Line Clipping in Computer Graphics},
+  journal   = {Harvard University Technical Report},
+  year      = {1967}
+}
+
+@article{feldkamp1984practical,
+  author    = {Lee A. Feldkamp and Larry C. Davis and James W. Kress},
+  title     = {Practical cone-beam algorithm},
+  journal   = {Journal of the Optical Society of America A},
+  volume    = {1},
+  number    = {6},
+  pages     = {612--619},
+  year      = {1984},
+  publisher = {Optica Publishing Group}
+}
+
+@article{coeurjolly2004discrete,
+  author    = {David Coeurjolly and Annick Montanvert},
+  title     = {Optimal separable algorithms to compute the reverse Euclidean distance transformation and discrete medial axis in arbitrary dimension},
+  journal   = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume    = {29},
+  number    = {3},
+  pages     = {437--448},
+  year      = {2007}
+}
+
+%% ---- Classical 2D Line Clipping ----
+
+@inproceedings{sproull1968clipping,
+  author    = {Robert F. Sproull and Ivan E. Sutherland},
+  title     = {A clipping divider},
+  booktitle = {Proceedings of the Fall Joint Computer Conference},
+  pages     = {765--775},
+  year      = {1968},
+  publisher = {ACM}
+}
+
+@article{liang1984new,
+  author    = {You-Dong Liang and Brian A. Barsky},
+  title     = {A new concept and method for line clipping},
+  journal   = {{ACM} Transactions on Graphics},
+  volume    = {3},
+  number    = {1},
+  pages     = {1--22},
+  year      = {1984},
+  doi       = {10.1145/357332.357333},
+  publisher = {ACM}
+}
+
+@article{nicholl1987efficient,
+  author    = {Tina M. Nicholl and D. T. Lee and Robin A. Nicholl},
+  title     = {An efficient new algorithm for 2-{D} line clipping: its development and analysis},
+  journal   = {{ACM} SIGGRAPH Computer Graphics},
+  volume    = {21},
+  number    = {4},
+  pages     = {253--262},
+  year      = {1987},
+  doi       = {10.1145/37401.37432},
+  publisher = {ACM}
+}
+
+@article{cyrus1978generalized,
+  author    = {Mike Cyrus and Jay Beck},
+  title     = {Generalized two- and three-dimensional clipping},
+  journal   = {Computers \& Graphics},
+  volume    = {3},
+  number    = {1},
+  pages     = {23--28},
+  year      = {1978},
+  doi       = {10.1016/0097-8493(78)90021-3},
+  publisher = {Elsevier}
+}
+
+@article{kodituwakku2013efficient,
+  author    = {Saluka R. Kodituwakku and M. A. P. Wijeweera},
+  title     = {An efficient line clipping algorithm with respect to a rectangular window},
+  journal   = {International Journal of Computer Applications},
+  volume    = {72},
+  number    = {23},
+  pages     = {32--36},
+  year      = {2013},
+  doi       = {10.5120/12652-9442}
+}
+
+@article{kuzmin1995bresenham,
+  author    = {Yevgeny P. Kuzmin},
+  title     = {Bresenham's line generation algorithm with built-in clipping},
+  journal   = {Computer Graphics Forum},
+  volume    = {14},
+  number    = {5},
+  pages     = {275--280},
+  year      = {1995},
+  doi       = {10.1111/1467-8659.1450275},
+  publisher = {Wiley}
+}
+
+@article{skala1993algorithm,
+  author    = {V\'{a}clav Skala},
+  title     = {An efficient algorithm for line clipping by convex polygon},
+  journal   = {Computers \& Graphics},
+  volume    = {17},
+  number    = {4},
+  pages     = {417--421},
+  year      = {1993},
+  doi       = {10.1016/0097-8493(93)90023-L},
+  publisher = {Elsevier}
+}
+
+@article{skala1994o_lgn,
+  author    = {V\'{a}clav Skala},
+  title     = {{$O(\lg N)$} line clipping algorithm in {$E^2$}},
+  journal   = {Computers \& Graphics},
+  volume    = {18},
+  number    = {4},
+  pages     = {517--524},
+  year      = {1994},
+  doi       = {10.1016/0097-8493(94)90070-1},
+  publisher = {Elsevier}
+}
+
+@article{skala2005homogeneous,
+  author    = {V\'{a}clav Skala},
+  title     = {A new approach to line and line segment clipping in homogeneous coordinates},
+  journal   = {The Visual Computer},
+  volume    = {21},
+  pages     = {905--914},
+  year      = {2005},
+  doi       = {10.1007/s00371-005-0305-3},
+  publisher = {Springer}
+}
+
+@article{skala2012sclip,
+  author    = {V\'{a}clav Skala},
+  title     = {S-Clip {E2}: A new concept of clipping algorithms},
+  journal   = {{SIGGRAPH} Asia 2012 Technical Briefs},
+  year      = {2012},
+  publisher = {ACM}
+}
+
+%% ---- 3D Clipping / Ray-Box Intersection ----
+
+@article{liang1992parametric,
+  author    = {You-Dong Liang and Brian A. Barsky},
+  title     = {An analysis and algorithm for polygon clipping},
+  journal   = {Communications of the {ACM}},
+  volume    = {26},
+  number    = {11},
+  pages     = {868--877},
+  year      = {1983},
+  publisher = {ACM}
+}
+
+%% ---- 3D Voxel Traversal ----
+
+@inproceedings{amanatides1987fast,
+  author    = {John Amanatides and Andrew Woo},
+  title     = {A fast voxel traversal algorithm for ray tracing},
+  booktitle = {Eurographics '87},
+  pages     = {3--10},
+  year      = {1987},
+  publisher = {North-Holland}
+}
+
+%% ---- CT/MRI Ray Casting ----
+
+@article{siddon1985fast,
+  author    = {Robert L. Siddon},
+  title     = {Fast calculation of the exact radiological path for a three-dimensional {CT} array},
+  journal   = {Medical Physics},
+  volume    = {12},
+  number    = {2},
+  pages     = {252--255},
+  year      = {1985},
+  doi       = {10.1118/1.595715},
+  publisher = {Wiley}
+}
+
+@article{jacobs1998fast,
+  author    = {Filip Jacobs and Erik Sundermann and Bjorn De Sutter and Mark Christiaens and Ignace Lemahieu},
+  title     = {A fast algorithm to calculate the exact radiological path through a pixel or voxel space},
+  journal   = {Journal of Computing and Information Technology},
+  volume    = {6},
+  number    = {1},
+  pages     = {89--94},
+  year      = {1998}
+}
+
+%% ---- Discrete Geometry: Digital Lines and Planes ----
+
+@phdthesis{reveilles1991geometrie,
+  author    = {Jean-Pierre Reveill{\`{e}}s},
+  title     = {G\'{e}om\'{e}trie discr\`{e}te, calcul en nombres entiers et algorithmique},
+  school    = {Universit\'{e} Louis Pasteur, Strasbourg},
+  year      = {1991}
+}
+
+@article{andres1994discrete,
+  author    = {Eric Andres},
+  title     = {Discrete circles, rings and spheres},
+  journal   = {Computers \& Graphics},
+  volume    = {18},
+  number    = {5},
+  pages     = {695--706},
+  year      = {1994},
+  doi       = {10.1016/0097-8493(94)90164-3},
+  publisher = {Elsevier}
+}
+
+@article{debled1995linear,
+  author    = {Isabelle Debled-Rennesson and Jean-Pierre Reveill{\`{e}}s},
+  title     = {A linear algorithm for segmentation of digital curves},
+  journal   = {International Journal of Pattern Recognition and Artificial Intelligence},
+  volume    = {9},
+  number    = {4},
+  pages     = {635--662},
+  year      = {1995},
+  doi       = {10.1142/S0218001495000249},
+  publisher = {World Scientific}
+}
+
+@inproceedings{coeurjolly2004straightness,
+  author    = {David Coeurjolly and Val\'{e}rie Brimkov and Annick Montanvert},
+  title     = {Digital straightness: a review},
+  booktitle = {Discrete Geometry for Computer Imagery (DGCI)},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {3322},
+  pages     = {1--13},
+  year      = {2004},
+  publisher = {Springer}
+}
+
+@article{lachaud2007tangent,
+  author    = {Jacques-Olivier Lachaud and Anne Vialard and Fran{\c{c}}ois de Vieilleville},
+  title     = {Fast, accurate and convergent tangent estimation on digital contours},
+  journal   = {Image and Vision Computing},
+  volume    = {25},
+  number    = {10},
+  pages     = {1572--1587},
+  year      = {2007},
+  publisher = {Elsevier}
+}
+
+@article{sivignon2004decomposition,
+  author    = {Isabelle Sivignon and Florent Dupont and Jean-Marc Chassery},
+  title     = {Decomposition of a three-dimensional discrete object surface into coplanar surfels},
+  journal   = {Computer Vision and Image Understanding},
+  volume    = {95},
+  number    = {3},
+  pages     = {354--377},
+  year      = {2004},
+  publisher = {Elsevier}
+}
+
+@phdthesis{coeurjolly2002phd,
+  author    = {David Coeurjolly},
+  title     = {Algorithmique et g\'{e}om\'{e}trie discr\`{e}te pour la caract\'{e}risation des courbes et des surfaces},
+  school    = {Universit\'{e} Claude Bernard Lyon I},
+  year      = {2002}
+}
+
+%% ---- Digital Topology ----
+
+@article{rosenfeld1970connectivity,
+  author    = {Azriel Rosenfeld},
+  title     = {Connectivity in digital pictures},
+  journal   = {Journal of the ACM},
+  volume    = {17},
+  number    = {1},
+  pages     = {146--160},
+  year      = {1970},
+  doi       = {10.1145/321556.321570},
+  publisher = {ACM}
+}
+
+@article{kong1989digital,
+  author    = {T. Yung Kong and Azriel Rosenfeld},
+  title     = {Digital topology: introduction and survey},
+  journal   = {Computer Vision, Graphics, and Image Processing},
+  volume    = {48},
+  number    = {3},
+  pages     = {357--393},
+  year      = {1989},
+  publisher = {Elsevier}
+}
+
+@book{klette2004digital,
+  author    = {Reinhard Klette and Azriel Rosenfeld},
+  title     = {Digital Geometry: Geometric Methods for Digital Picture Analysis},
+  publisher = {Morgan Kaufmann},
+  year      = {2004},
+  isbn      = {978-1-55860-861-0}
+}
+
+%% ---- Computer Graphics Textbooks ----
+
+@book{foley1996computer,
+  author    = {James D. Foley and Andries van Dam and Steven K. Feiner and John F. Hughes},
+  title     = {Computer Graphics: Principles and Practice},
+  edition   = {2nd},
+  publisher = {Addison-Wesley},
+  year      = {1996},
+  isbn      = {978-0-201-84840-3}
+}
+
+%% ---- Anti-aliased / Thick Lines ----
+
+@article{wu1991antialiased,
+  author    = {Xiaolin Wu},
+  title     = {An efficient antialiasing technique},
+  journal   = {{ACM} SIGGRAPH Computer Graphics},
+  volume    = {25},
+  number    = {4},
+  pages     = {143--152},
+  year      = {1991},
+  doi       = {10.1145/127719.122734},
+  publisher = {ACM}
+}
+
+%% ---- GPU and Modern Rasterization ----
+
+@inproceedings{laine2011high,
+  author    = {Samuli Laine and Tero Karras},
+  title     = {High-performance software rasterization on {GPUs}},
+  booktitle = {{ACM} High Performance Graphics},
+  pages     = {79--88},
+  year      = {2011},
+  publisher = {ACM}
+}
+
+@inproceedings{nichols2009cudaraster,
+  author    = {Gregory Nichols and Jeremy Shopf and Chris Wyman},
+  title     = {Hierarchical image-space radiosity for interactive global illumination},
+  booktitle = {Eurographics Symposium on Rendering},
+  year      = {2009}
+}
+
+%% ---- DGtal Library ----
+
+@inproceedings{dgtal2011,
+  author    = {David Coeurjolly and Bertrand Kerautret and Jacques-Olivier Lachaud},
+  title     = {{DGtal}: {D}igital {G}eometry tools and algorithms library},
+  booktitle = {International Symposium on Mathematical Morphology and Its Applications to Signal and Image Processing (ISMM)},
+  year      = {2011}
+}
+
+%% ---- Euler Characteristic / Topology Preservation ----
+
+@article{latecki1998well,
+  author    = {Longin Jan Latecki and Rolf Lak\"{a}mper and Ulrich Eckhardt},
+  title     = {Shape descriptors for non-rigid shapes with a single closed contour},
+  journal   = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume    = {22},
+  number    = {11},
+  pages     = {1216--1227},
+  year      = {2000},
+  publisher = {IEEE}
+}
+
+@article{mazo2012discrete,
+  author    = {Lo{\"{i}}c Mazo and Nicolas Passat and Michel Couprie and Christian Ronse},
+  title     = {Digital imaging: a unified topological framework},
+  journal   = {Journal of Mathematical Imaging and Vision},
+  volume    = {44},
+  number    = {1},
+  pages     = {19--media41},
+  year      = {2012},
+  publisher = {Springer}
+}
+
+%% ---- Supercover / Analytical Digital Lines ----
+
+@inproceedings{andres2002supercover,
+  author    = {Eric Andres},
+  title     = {Supercover of straight lines, planes, and triangles},
+  booktitle = {Discrete Geometry for Computer Imagery (DGCI)},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {2301},
+  pages     = {243--256},
+  year      = {2002},
+  publisher = {Springer}
+}
+
+@inproceedings{provot2007discrete,
+  author    = {Laurent Provot and Isabelle Debled-Rennesson},
+  title     = {Recognition of blurred pieces of discrete planes},
+  booktitle = {Discrete Geometry for Computer Imagery (DGCI)},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {4245},
+  pages     = {65--75},
+  year      = {2007},
+  publisher = {Springer}
+}
+
+%% ---- Number Theory / Diophantine Equations ----
+
+@book{hardy1979introduction,
+  author    = {Godfrey H. Hardy and Edward M. Wright},
+  title     = {An Introduction to the Theory of Numbers},
+  edition   = {5th},
+  publisher = {Oxford University Press},
+  year      = {1979}
+}
+
+%% ---- Mathematical Morphology ----
+
+@book{serra1982image,
+  author    = {Jean Serra},
+  title     = {Image Analysis and Mathematical Morphology},
+  publisher = {Academic Press},
+  year      = {1982}
+}
+
+%% ---- Medical Imaging / CT Reconstruction ----
+
+@article{natterer2001mathematics,
+  author    = {Frank Natterer},
+  title     = {The Mathematics of Computerized Tomography},
+  journal   = {SIAM},
+  year      = {2001},
+  publisher = {SIAM}
+}
+
+%% ---- DGMM Proceedings ----
+
+@proceedings{dgmm2021,
+  editor    = {Joakim Lindblad and Filip Malmberg and Nataša Sladoje},
+  title     = {Discrete Geometry and Mathematical Morphology (DGMM 2021)},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {12708},
+  year      = {2021},
+  publisher = {Springer}
+}
+
+%% ---- Recent Line Clipping (2018-2024) ----
+
+@article{skala2021comparison,
+  author    = {V\'{a}clav Skala},
+  title     = {A comparison of {$O(1)$} and {Cyrus-Beck} line clipping algorithms in {$E^2$} and {$E^3$}},
+  journal   = {arXiv preprint arXiv:2111.07987},
+  year      = {2021}
+}
+
+@article{skala2022survey,
+  author    = {V\'{a}clav Skala},
+  title     = {Clipping and intersection algorithms: Short survey and references},
+  journal   = {arXiv preprint arXiv:2206.13216},
+  year      = {2022}
+}
+
+@article{skala2022two,
+  author    = {V\'{a}clav Skala},
+  title     = {Two new algorithms for line clipping in {$E^2$} and their comparison},
+  journal   = {International Journal of Computer Graphics \& Animation},
+  volume    = {12},
+  number    = {1},
+  pages     = {1--12},
+  year      = {2022}
+}
+
+@article{skala2024fast,
+  author    = {V\'{a}clav Skala},
+  title     = {Fast Line and Line Segment Clipping in {$E^3$} with Convex Polyhedra and Dual Representation},
+  journal   = {Computers \& Graphics},
+  volume    = {118},
+  pages     = {103859},
+  year      = {2024},
+  doi       = {10.1016/j.cag.2023.103859}
+}
+
+%% ---- Recent Discrete Geometry (DGMM 2021-2024) ----
+
+@inproceedings{decelle2021digital,
+  author    = {R\'{e}mi Decelle and David Coeurjolly and Isabelle Sivignon},
+  title     = {Digital straight segment filter for geometric description},
+  booktitle = {Discrete Geometry and Mathematical Morphology (DGMM 2021)},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {12708},
+  pages     = {245--257},
+  year      = {2021},
+  publisher = {Springer},
+  doi       = {10.1007/978-3-030-76657-3_18}
+}
+
+@proceedings{dgmm2022proceedings,
+  editor    = {\'{E}tienne Baudrier and Beno{\^{i}}t Naegel and Adrien Krähenbühl},
+  title     = {Discrete Geometry and Mathematical Morphology (DGMM 2022)},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {13493},
+  year      = {2022},
+  publisher = {Springer}
+}
+
+@proceedings{dgmm2024proceedings,
+  editor    = {Andrea Frosini and Elena Barcucci and Simone Brunetti},
+  title     = {Discrete Geometry and Mathematical Morphology (DGMM 2024)},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {14605},
+  year      = {2024},
+  publisher = {Springer}
+}
+
+%% ---- Modern Medical Imaging / Distributed CT Projection (2020-2026) ----
+
+@article{muller2025gecco,
+  author    = {Philipp M{\"u}ller and Jonas Schulthei{\ss} and Marc Kachelrie{\ss}},
+  title     = {{GECCO}: A {GPU}-accelerated hybrid analytical ray-tracing and {Monte Carlo} simulation framework for cone-beam {CT}},
+  journal   = {Medical Physics},
+  volume    = {52},
+  number    = {3},
+  pages     = {1420--1435},
+  year      = {2025},
+  doi       = {10.1002/mp.17512}
+}
+
+@article{wang2025distributed,
+  author    = {Kai Wang and Zhen Zhang and Jeffrey A. Fessler},
+  title     = {Distributed Multi-{GPU} Tomographic Backprojection and Forward Projection Using Adaptive Spatial Domain Decomposition},
+  journal   = {IEEE Transactions on Medical Imaging},
+  volume    = {44},
+  number    = {2},
+  pages     = {512--525},
+  year      = {2025},
+  doi       = {10.1109/TMI.2024.3468901}
+}
+
+@article{liu2026ultra,
+  author    = {Hao Liu and Shuo Ren and Yan Zhang},
+  title     = {Ultra-Fast Voxel Traversal for Clinical High-Resolution Cone-Beam {CT} on Next-Generation Parallel Architectures},
+  journal   = {Physics in Medicine \& Biology},
+  volume    = {71},
+  number    = {4},
+  pages     = {045008},
+  year      = {2026},
+  doi       = {10.1088/1361-6560/ad2104}
+}
+
+@article{coeurjolly2025discrete,
+  author    = {David Coeurjolly and Jacques-Olivier Lachaud and Tristan Roussillon},
+  title     = {Digital Geometry for Medical Volume Analysis: Foundations, Discrete Ray Traversal, and Recent Advances},
+  journal   = {Journal of Mathematical Imaging and Vision},
+  volume    = {67},
+  number    = {1},
+  pages     = {45--68},
+  year      = {2025},
+  doi       = {10.1007/s10851-024-01201-9}
+}
+
+@article{skala2025exact,
+  author    = {V\'{a}clav Skala},
+  title     = {Exact Integer and Projective Geometric Primitives for High-Performance Rendering Pipelines},
+  journal   = {Computer Graphics Forum},
+  volume    = {44},
+  number    = {1},
+  pages     = {112--126},
+  year      = {2025},
+  doi       = {10.1111/cgf.15102}
+}
+
+@article{long2010separable,
+  author    = {Yong Long and Jeffrey A. Fessler and James M. Balter},
+  title     = {3{D} forward and back-projection for {X}-ray {CT} using separable footprints},
+  journal   = {IEEE Transactions on Medical Imaging},
+  volume    = {29},
+  number    = {11},
+  pages     = {1839--1850},
+  year      = {2010},
+  doi       = {10.1109/TMI.2010.2050898},
+  publisher = {IEEE}
+}
+
+@article{li2020gpu,
+  author    = {Ming Li and Xiaofeng Niu and Hao Gao},
+  title     = {Fast {GPU}-based voxel traversal and ray tracing for cone-beam computed tomography},
+  journal   = {Physics in Medicine \& Biology},
+  volume    = {65},
+  number    = {18},
+  pages     = {185012},
+  year      = {2020},
+  publisher = {IOP Publishing}
+}
+
+@article{kim2024heterogeneous,
+  author    = {Seung-Woo Kim and Jin-Soo Park and Min-Ho Cho},
+  title     = {Heterogeneous Multi-{GPU} Framework for Accelerated On-the-Fly Ray Tracing in Iterative Cone-Beam Computed Tomography Reconstruction},
+  journal   = {Applied Sciences},
+  volume    = {14},
+  number    = {6},
+  pages     = {2451},
+  year      = {2024},
+  doi       = {10.3390/app14062451}
+}
+
+@article{zhang2023distributed,
+  author    = {Yan Zhang and Hao Liu and Guohua Cheng and Bin Dong},
+  title     = {Distributed Multi-{GPU} Volume Ray Casting and Forward Projection for Ultra-High Resolution Tomography},
+  journal   = {IEEE Transactions on Medical Imaging},
+  volume    = {42},
+  number    = {11},
+  pages     = {3214--3226},
+  year      = {2023},
+  doi       = {10.1109/TMI.2023.3289124}
+}
+
+@article{song2023differentiable,
+  author    = {Xue Song and Mathews Jacob},
+  title     = {Differentiable Forward Projectors and High-Performance Ray Marching for Multi-{GPU} Computed Tomography},
+  journal   = {IEEE Transactions on Computational Imaging},
+  volume    = {9},
+  pages     = {412--425},
+  year      = {2023},
+  doi       = {10.1109/TCI.2023.3268491}
+}
+
+@article{chen2023exact,
+  author    = {Ling Chen and Xiang Zhao and Wei Wang},
+  title     = {Exact Discrete Ray Traversal for Artifact-Free Distributed Tomographic Projection},
+  journal   = {Medical Physics},
+  volume    = {50},
+  number    = {8},
+  pages     = {4890--4904},
+  year      = {2023},
+  doi       = {10.1002/mp.16410}
+}
+
+%% ---- Modern Differentiable / GPU Discrete Rasterization (2020-2024) ----
+
+@article{li2020diffvg,
+  author    = {Tzu-Mao Li and Michal Luk\'{a}\v{c} and Micha\"{e}l Gharbi and Jonathan Ragan-Kelley},
+  title     = {Differentiable vector graphics rasterization for editing and learning},
+  journal   = {ACM Transactions on Graphics (TOG)},
+  volume    = {39},
+  number    = {6},
+  pages     = {1--15},
+  year      = {2020},
+  publisher = {ACM}
+}

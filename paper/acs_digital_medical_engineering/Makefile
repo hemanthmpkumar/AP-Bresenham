@@ -32,3 +32,4 @@ toc:
 clean:
 	@rm -f *.aux *.bbl *.blg *.log *.out *.toc *.synctex.gz
 	@echo "✓ Cleaned temporary build artifacts."
+

@@ -8,13 +8,14 @@ BIBTEX   ?= /Library/TeX/texbin/bibtex
 PAPER_DIR = paper/icccs2027_conference
 PAPER_NAME = icccs2027_paper
 
-.PHONY: all paper dgmm icccs dme test bench figures clean help
+.PHONY: all paper dgmm icccs dme bmc test bench figures clean help
 
-all: test bench figures icccs dme
+all: test bench figures icccs dme bmc
 
 help:
 	@echo "AP-Bresenham Build and Verification Targets:"
 	@echo "  make paper    - Compile the IEEE conference paper (ICCCS) to PDF"
+	@echo "  make bmc      - Compile the BMC Medical Imaging (Springer) manuscript"
 	@echo "  make dme      - Compile the ACS Digital Medical Engineering submission package"
 	@echo "  make dgmm     - Compile the DGMM 2027 conference LaTeX paper to PDF"
 	@echo "  make icccs    - Compile the ICCCS 2027 IEEE conference paper to PDF"
@@ -25,6 +26,10 @@ help:
 	@echo "  make clean    - Remove build artifacts and temporary files"
 
 paper: icccs
+
+bmc:
+	@echo ">>> Compiling BMC Medical Imaging Manuscript..."
+	@cd paper/bmc_medical_imaging && make paper
 
 dme:
 	@echo ">>> Compiling ACS Digital Medical Engineering Package..."
@@ -66,5 +71,7 @@ clean:
 	@rm -f $(PAPER_DIR)/*.aux $(PAPER_DIR)/*.bbl $(PAPER_DIR)/*.blg $(PAPER_DIR)/*.log $(PAPER_DIR)/*.out $(PAPER_DIR)/*.toc
 	@rm -f paper/dgmm2027_conference/*.aux paper/dgmm2027_conference/*.bbl paper/dgmm2027_conference/*.blg paper/dgmm2027_conference/*.log paper/dgmm2027_conference/*.out paper/dgmm2027_conference/*.toc
 	@rm -f paper/icccs2027_conference/*.aux paper/icccs2027_conference/*.bbl paper/icccs2027_conference/*.blg paper/icccs2027_conference/*.log paper/icccs2027_conference/*.out paper/icccs2027_conference/*.toc
+	@cd paper/acs_digital_medical_engineering && make clean
+	@cd paper/bmc_medical_imaging && make clean
 	@find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
 	@echo "✓ Cleaned build artifacts."
