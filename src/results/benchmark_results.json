@@ -1,0 +1,15 @@
+{
+  "runs": 2000000,
+  "2d": {
+    "cohen_sutherland_ns": 11.545,
+    "liang_barsky_ns": 10.5615,
+    "cyrus_beck_ns": 19.7443,
+    "ap_bresenham_ns": 8.20883,
+    "speedup_vs_lb": 1.2866
+  },
+  "3d": {
+    "slab_3d_ns": 12.8466,
+    "ap_bresenham_3d_ns": 10.7143,
+    "speedup_vs_slab": 1.19901
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "results_2d": {
+    "Cohen-Sutherland (1967)": {
+      "failures": 1115,
+      "failure_rate_pct": 22.3,
+      "corrupted_pixels": 12724,
+      "time_sec": 0.07290845800000001,
+      "preserves_topology": false
+    },
+    "Liang-Barsky (1984)": {
+      "failures": 1114,
+      "failure_rate_pct": 22.28,
+      "corrupted_pixels": 12721,
+      "time_sec": 0.07391737500000001,
+      "preserves_topology": false
+    },
+    "Cyrus-Beck (1978)": {
+      "failures": 1114,
+      "failure_rate_pct": 22.28,
+      "corrupted_pixels": 12721,
+      "time_sec": 0.07522662499999999,
+      "preserves_topology": false
+    },
+    "Nicholl-Lee-Nicholl (1987)": {
+      "failures": 1114,
+      "failure_rate_pct": 22.28,
+      "corrupted_pixels": 12721,
+      "time_sec": 0.07427775000000003,
+      "preserves_topology": false
+    },
+    "Skala (1993/2005)": {
+      "failures": 1114,
+      "failure_rate_pct": 22.28,
+      "corrupted_pixels": 12721,
+      "time_sec": 0.076768958,
+      "preserves_topology": false
+    },
+    "AP-Bresenham 2D (Ours)": {
+      "failures": 0,
+      "failure_rate_pct": 0.0,
+      "corrupted_pixels": 0,
+      "time_sec": 0.07530291699999997,
+      "preserves_topology": true
+    }
+  },
+  "results_3d": {
+    "total_rays": 2000,
+    "intersecting_rays": 2000,
+    "3d_slab_bresenham": {
+      "seam_errors": 1760,
+      "seam_error_pct": 88.0,
+      "corrupted_voxels": 30121
+    },
+    "3d_ap_bresenham": {
+      "seam_errors": 0,
+      "seam_error_pct": 0.0,
+      "corrupted_voxels": 0
+    }
+  }
+}

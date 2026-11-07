@@ -1,0 +1,410 @@
+{
+  "clinical_abdominal_ct_benchmark": {
+    "8_subvolumes": {
+      "n_subvolumes": 8,
+      "partition_grid": "2x2x2",
+      "intersecting_rays": 5000,
+      "conventional_pipeline": {
+        "seam_defect_rate_pct": 99.72,
+        "corrupted_voxels": 110751,
+        "attenuation_error_pct": 99.7,
+        "rmse": 1.9301,
+        "max_abs_error": 15.935,
+        "psnr_db": 28.27,
+        "topology_preserved": false
+      },
+      "ap_bresenham": {
+        "seam_defect_rate_pct": 0.0,
+        "corrupted_voxels": 0,
+        "attenuation_error_pct": 0.0,
+        "rmse": 0.0,
+        "max_abs_error": 0.0,
+        "psnr_db": "inf (exact)",
+        "topology_preserved": true
+      }
+    },
+    "64_subvolumes": {
+      "n_subvolumes": 64,
+      "partition_grid": "4x4x4",
+      "intersecting_rays": 5000,
+      "conventional_pipeline": {
+        "seam_defect_rate_pct": 99.88,
+        "corrupted_voxels": 137735,
+        "attenuation_error_pct": 99.88,
+        "rmse": 1.9738,
+        "max_abs_error": 15.935,
+        "psnr_db": 28.07,
+        "topology_preserved": false
+      },
+      "ap_bresenham": {
+        "seam_defect_rate_pct": 0.0,
+        "corrupted_voxels": 0,
+        "attenuation_error_pct": 0.0,
+        "rmse": 0.0,
+        "max_abs_error": 0.0,
+        "psnr_db": "inf (exact)",
+        "topology_preserved": true
+      }
+    }
+  },
+  "mni152_brain_mri_benchmark": {
+    "8_subvolumes": {
+      "n_subvolumes": 8,
+      "partition_grid": "2x2x2",
+      "intersecting_rays": 5000,
+      "conventional_pipeline": {
+        "seam_defect_rate_pct": 99.72,
+        "corrupted_voxels": 110751,
+        "attenuation_error_pct": 99.56,
+        "rmse": 4.7101,
+        "max_abs_error": 41.6118,
+        "psnr_db": 16.08,
+        "topology_preserved": false
+      },
+      "ap_bresenham": {
+        "seam_defect_rate_pct": 0.0,
+        "corrupted_voxels": 0,
+        "attenuation_error_pct": 0.0,
+        "rmse": 0.0,
+        "max_abs_error": 0.0,
+        "psnr_db": "inf (exact)",
+        "topology_preserved": true
+      }
+    },
+    "64_subvolumes": {
+      "n_subvolumes": 64,
+      "partition_grid": "4x4x4",
+      "intersecting_rays": 5000,
+      "conventional_pipeline": {
+        "seam_defect_rate_pct": 99.88,
+        "corrupted_voxels": 137735,
+        "attenuation_error_pct": 99.8,
+        "rmse": 4.8226,
+        "max_abs_error": 41.6118,
+        "psnr_db": 15.88,
+        "topology_preserved": false
+      },
+      "ap_bresenham": {
+        "seam_defect_rate_pct": 0.0,
+        "corrupted_voxels": 0,
+        "attenuation_error_pct": 0.0,
+        "rmse": 0.0,
+        "max_abs_error": 0.0,
+        "psnr_db": "inf (exact)",
+        "topology_preserved": true
+      }
+    }
+  },
+  "sinogram_projection_slices": {
+    "ct_abdo": {
+      "dataset": "Clinical_Abdominal_CT",
+      "total_projections": 11520,
+      "corrupted_projections": 10622,
+      "corrupted_pct": 92.2,
+      "max_residual_error": 14.8338,
+      "sinogram_rmse": 0.467,
+      "sinogram_psnr_db": 40.59,
+      "sample_rays": [
+        {
+          "angle_deg": 0.0,
+          "detector_idx": 0,
+          "gt_attenuation": 12.8644,
+          "conv_attenuation": 12.8644,
+          "ap_attenuation": 12.8644,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 0.0,
+          "detector_idx": 16,
+          "gt_attenuation": 13.8512,
+          "conv_attenuation": 13.8512,
+          "ap_attenuation": 13.8512,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 0.0,
+          "detector_idx": 32,
+          "gt_attenuation": 14.5218,
+          "conv_attenuation": 14.5218,
+          "ap_attenuation": 14.5218,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 0.0,
+          "detector_idx": 48,
+          "gt_attenuation": 14.4226,
+          "conv_attenuation": 14.4226,
+          "ap_attenuation": 14.4226,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 45.0,
+          "detector_idx": 0,
+          "gt_attenuation": 7.2246,
+          "conv_attenuation": 7.2246,
+          "ap_attenuation": 7.2246,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 45.0,
+          "detector_idx": 16,
+          "gt_attenuation": 10.1476,
+          "conv_attenuation": 10.1476,
+          "ap_attenuation": 10.1476,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 45.0,
+          "detector_idx": 32,
+          "gt_attenuation": 10.2164,
+          "conv_attenuation": 10.2164,
+          "ap_attenuation": 10.2164,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 45.0,
+          "detector_idx": 48,
+          "gt_attenuation": 10.493,
+          "conv_attenuation": 10.493,
+          "ap_attenuation": 10.493,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 90.0,
+          "detector_idx": 0,
+          "gt_attenuation": 9.6948,
+          "conv_attenuation": 9.6948,
+          "ap_attenuation": 9.6948,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 90.0,
+          "detector_idx": 16,
+          "gt_attenuation": 13.6322,
+          "conv_attenuation": 13.6322,
+          "ap_attenuation": 13.6322,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 90.0,
+          "detector_idx": 32,
+          "gt_attenuation": 15.3844,
+          "conv_attenuation": 15.3844,
+          "ap_attenuation": 15.3844,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 90.0,
+          "detector_idx": 48,
+          "gt_attenuation": 13.1558,
+          "conv_attenuation": 13.1558,
+          "ap_attenuation": 13.1558,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 135.0,
+          "detector_idx": 0,
+          "gt_attenuation": 7.1552,
+          "conv_attenuation": 7.1552,
+          "ap_attenuation": 7.1552,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 135.0,
+          "detector_idx": 16,
+          "gt_attenuation": 9.6706,
+          "conv_attenuation": 9.6706,
+          "ap_attenuation": 9.6706,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 135.0,
+          "detector_idx": 32,
+          "gt_attenuation": 10.076,
+          "conv_attenuation": 10.076,
+          "ap_attenuation": 10.076,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 135.0,
+          "detector_idx": 48,
+          "gt_attenuation": 10.4578,
+          "conv_attenuation": 10.455,
+          "ap_attenuation": 10.4578,
+          "conv_residual_error": 0.0028,
+          "ap_residual_error": 0.0
+        }
+      ]
+    },
+    "mni152": {
+      "dataset": "MNI152_Brain_MRI",
+      "total_projections": 11520,
+      "corrupted_projections": 10388,
+      "corrupted_pct": 90.17,
+      "max_residual_error": 38.3922,
+      "sinogram_rmse": 1.1346,
+      "sinogram_psnr_db": 32.88,
+      "sample_rays": [
+        {
+          "angle_deg": 0.0,
+          "detector_idx": 0,
+          "gt_attenuation": 44.7412,
+          "conv_attenuation": 44.7412,
+          "ap_attenuation": 44.7412,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 0.0,
+          "detector_idx": 16,
+          "gt_attenuation": 41.4392,
+          "conv_attenuation": 41.4392,
+          "ap_attenuation": 41.4392,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 0.0,
+          "detector_idx": 32,
+          "gt_attenuation": 31.6745,
+          "conv_attenuation": 31.6745,
+          "ap_attenuation": 31.6745,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 0.0,
+          "detector_idx": 48,
+          "gt_attenuation": 38.3137,
+          "conv_attenuation": 38.3137,
+          "ap_attenuation": 38.3137,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 45.0,
+          "detector_idx": 0,
+          "gt_attenuation": 18.3608,
+          "conv_attenuation": 18.3608,
+          "ap_attenuation": 18.3608,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 45.0,
+          "detector_idx": 16,
+          "gt_attenuation": 23.5843,
+          "conv_attenuation": 23.5843,
+          "ap_attenuation": 23.5843,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 45.0,
+          "detector_idx": 32,
+          "gt_attenuation": 26.8157,
+          "conv_attenuation": 26.8157,
+          "ap_attenuation": 26.8157,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 45.0,
+          "detector_idx": 48,
+          "gt_attenuation": 24.7333,
+          "conv_attenuation": 24.7333,
+          "ap_attenuation": 24.7333,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 90.0,
+          "detector_idx": 0,
+          "gt_attenuation": 30.1725,
+          "conv_attenuation": 30.1725,
+          "ap_attenuation": 30.1725,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 90.0,
+          "detector_idx": 16,
+          "gt_attenuation": 33.3569,
+          "conv_attenuation": 33.3569,
+          "ap_attenuation": 33.3569,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 90.0,
+          "detector_idx": 32,
+          "gt_attenuation": 39.8549,
+          "conv_attenuation": 39.8549,
+          "ap_attenuation": 39.8549,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 90.0,
+          "detector_idx": 48,
+          "gt_attenuation": 41.5765,
+          "conv_attenuation": 41.5765,
+          "ap_attenuation": 41.5765,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 135.0,
+          "detector_idx": 0,
+          "gt_attenuation": 16.749,
+          "conv_attenuation": 16.749,
+          "ap_attenuation": 16.749,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 135.0,
+          "detector_idx": 16,
+          "gt_attenuation": 21.8275,
+          "conv_attenuation": 21.8275,
+          "ap_attenuation": 21.8275,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 135.0,
+          "detector_idx": 32,
+          "gt_attenuation": 27.4353,
+          "conv_attenuation": 27.4353,
+          "ap_attenuation": 27.4353,
+          "conv_residual_error": 0.0,
+          "ap_residual_error": 0.0
+        },
+        {
+          "angle_deg": 135.0,
+          "detector_idx": 48,
+          "gt_attenuation": 28.0941,
+          "conv_attenuation": 28.102,
+          "ap_attenuation": 28.0941,
+          "conv_residual_error": 0.0078,
+          "ap_residual_error": 0.0
+        }
+      ]
+    }
+  }
+}

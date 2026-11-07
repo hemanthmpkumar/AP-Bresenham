@@ -1,0 +1,104 @@
+{
+  "complex_2d_cad_benchmark": {
+    "Cohen-Sutherland (1967)": {
+      "total_lines": 5000,
+      "lines_with_seam_defects": 4735,
+      "seam_defect_rate_pct": 94.7,
+      "corrupted_pixels": 664723,
+      "bit_identity_pct": 5.3,
+      "runtime_sec": 0.8228,
+      "throughput_mops": 0.1,
+      "preserves_topology": false
+    },
+    "Liang-Barsky (1984)": {
+      "total_lines": 5000,
+      "lines_with_seam_defects": 4735,
+      "seam_defect_rate_pct": 94.7,
+      "corrupted_pixels": 664739,
+      "bit_identity_pct": 5.3,
+      "runtime_sec": 0.8434,
+      "throughput_mops": 0.09,
+      "preserves_topology": false
+    },
+    "Cyrus-Beck (1978)": {
+      "total_lines": 5000,
+      "lines_with_seam_defects": 4735,
+      "seam_defect_rate_pct": 94.7,
+      "corrupted_pixels": 664739,
+      "bit_identity_pct": 5.3,
+      "runtime_sec": 0.8704,
+      "throughput_mops": 0.09,
+      "preserves_topology": false
+    },
+    "Kuzmin Built-In (1995)": {
+      "total_lines": 5000,
+      "lines_with_seam_defects": 0,
+      "seam_defect_rate_pct": 0.0,
+      "corrupted_pixels": 0,
+      "bit_identity_pct": 100.0,
+      "runtime_sec": 1.9634,
+      "throughput_mops": 0.04,
+      "preserves_topology": true
+    },
+    "AP-Bresenham (Ours)": {
+      "total_lines": 5000,
+      "lines_with_seam_defects": 0,
+      "seam_defect_rate_pct": 0.0,
+      "corrupted_pixels": 0,
+      "bit_identity_pct": 100.0,
+      "runtime_sec": 1.0911,
+      "throughput_mops": 0.07,
+      "preserves_topology": true
+    }
+  },
+  "shepp_logan_3d_ct_benchmark": {
+    "8_subvolumes": {
+      "n_subvolumes": 8,
+      "total_rays": 5000,
+      "intersecting_rays": 5000,
+      "ap_bresenham": {
+        "seam_defect_rate_pct": 0.0,
+        "attenuation_error_pct": 0.0,
+        "rmse": 0.0,
+        "max_abs_error": 0.0,
+        "psnr_db": "inf (exact)",
+        "topology_preserved": true,
+        "runtime_sec": 0.157
+      },
+      "conventional_pipeline": {
+        "seam_defect_rate_pct": 99.84,
+        "corrupted_voxels": 115886,
+        "attenuation_error_pct": 94.18,
+        "rmse": 7.6691,
+        "max_abs_error": 62.22,
+        "psnr_db": 16.28,
+        "topology_preserved": false,
+        "runtime_sec": 0.1113
+      }
+    },
+    "64_subvolumes": {
+      "n_subvolumes": 64,
+      "total_rays": 5000,
+      "intersecting_rays": 5000,
+      "ap_bresenham": {
+        "seam_defect_rate_pct": 0.0,
+        "attenuation_error_pct": 0.0,
+        "rmse": 0.0,
+        "max_abs_error": 0.0,
+        "psnr_db": "inf (exact)",
+        "topology_preserved": true,
+        "runtime_sec": 0.5588
+      },
+      "conventional_pipeline": {
+        "seam_defect_rate_pct": 99.9,
+        "corrupted_voxels": 142446,
+        "attenuation_error_pct": 95.96,
+        "rmse": 7.7865,
+        "max_abs_error": 62.22,
+        "psnr_db": 16.15,
+        "topology_preserved": false,
+        "runtime_sec": 0.4211
+      }
+    }
+  }
+}

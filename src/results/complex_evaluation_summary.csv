@@ -1,0 +1,10 @@
+Experiment,Algorithm / Configuration,Defect Rate (%),Corrupted Elements,Topology Preserved,RMSE / Error
+2D CAD Tiled (16 tiles),Cohen-Sutherland (1967),94.7,664723,False,N/A
+2D CAD Tiled (16 tiles),Liang-Barsky (1984),94.7,664739,False,N/A
+2D CAD Tiled (16 tiles),Cyrus-Beck (1978),94.7,664739,False,N/A
+2D CAD Tiled (16 tiles),Kuzmin Built-In (1995),0.0,0,True,N/A
+2D CAD Tiled (16 tiles),AP-Bresenham (Ours),0.0,0,True,N/A
+3D CT Phantom (8 chunks),Slab-Clip + 3D Bresenham,99.84,115886,False,RMSE=7.6691
+3D CT Phantom (8 chunks),3D AP-Bresenham (Ours),0.0,0,True,RMSE=0.0000
+3D CT Phantom (64 chunks),Slab-Clip + 3D Bresenham,99.9,142446,False,RMSE=7.7865
+3D CT Phantom (64 chunks),3D AP-Bresenham (Ours),0.0,0,True,RMSE=0.0000

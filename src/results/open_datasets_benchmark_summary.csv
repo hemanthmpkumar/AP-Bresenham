@@ -1,0 +1,9 @@
+Dataset,Subvolumes,Algorithm,Seam Defect (%),Corrupted Voxels,Atten Err (%),RMSE,PSNR (dB)
+Clinical Abdominal CT,8,Conventional Slab-Clip + 3D Bresenham,99.72,110751,99.7,1.9301,28.27
+Clinical Abdominal CT,8,3D AP-Bresenham (Ours),0.0,0,0.0,0.0,inf
+Clinical Abdominal CT,64,Conventional Slab-Clip + 3D Bresenham,99.88,137735,99.88,1.9738,28.07
+Clinical Abdominal CT,64,3D AP-Bresenham (Ours),0.0,0,0.0,0.0,inf
+MNI-152 Brain MRI,8,Conventional Slab-Clip + 3D Bresenham,99.72,110751,99.56,4.7101,16.08
+MNI-152 Brain MRI,8,3D AP-Bresenham (Ours),0.0,0,0.0,0.0,inf
+MNI-152 Brain MRI,64,Conventional Slab-Clip + 3D Bresenham,99.88,137735,99.8,4.8226,15.88
+MNI-152 Brain MRI,64,3D AP-Bresenham (Ours),0.0,0,0.0,0.0,inf

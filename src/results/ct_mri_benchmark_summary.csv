@@ -1,0 +1,7 @@
+Subvolumes,Grid,Algorithm,Seam Defect (%),Corrupted Voxels,CT Atten Err (%),CT RMSE,CT PSNR (dB),MRI Err (%),MRI RMSE,MRI PSNR (dB)
+8,2x2x2,Conventional (Slab+3D Bresenham),99.72,110751,93.68,7.3854,16.61,93.42,4.412,16.65
+8,2x2x2,3D AP-Bresenham (Ours),0.0,0,0.0,0.0,inf,0.0,0.0,inf
+64,4x4x4,Conventional (Slab+3D Bresenham),99.88,137735,95.64,7.5048,16.47,96.76,4.4639,16.55
+64,4x4x4,3D AP-Bresenham (Ours),0.0,0,0.0,0.0,inf,0.0,0.0,inf
+512,8x8x8,Conventional (Slab+3D Bresenham),99.84,130998,98.2,8.9049,14.99,98.6,5.3018,15.05
+512,8x8x8,3D AP-Bresenham (Ours),0.0,0,0.0,0.0,inf,0.0,0.0,inf

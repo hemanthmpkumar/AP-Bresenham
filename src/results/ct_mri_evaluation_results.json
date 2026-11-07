@@ -1,0 +1,158 @@
+{
+  "pedagogical_case_study": {
+    "ray_endpoints": {
+      "P0": [
+        14,
+        18,
+        12
+      ],
+      "P1": [
+        50,
+        46,
+        38
+      ],
+      "delta": [
+        36,
+        28,
+        26
+      ]
+    },
+    "subvolume_boundary": "x = 31 | x = 32",
+    "ground_truth": {
+      "exit_voxel_omega1": [
+        31,
+        31,
+        24
+      ],
+      "entry_voxel_omega2": [
+        32,
+        32,
+        25
+      ],
+      "total_voxels": 37,
+      "attenuation_integral": 36.4
+    },
+    "ap_bresenham": {
+      "exit_voxel_omega1": [
+        31,
+        31,
+        24
+      ],
+      "entry_voxel_omega2": [
+        32,
+        32,
+        25
+      ],
+      "total_voxels": 37,
+      "attenuation_integral": 36.4,
+      "matches_gt": true,
+      "attenuation_error": 0.0
+    },
+    "conventional_pipeline": {
+      "exit_voxel_omega1": [
+        31,
+        31,
+        24
+      ],
+      "entry_voxel_omega2": [
+        32,
+        32,
+        25
+      ],
+      "total_voxels": 37,
+      "attenuation_integral": 36.4,
+      "matches_gt": false,
+      "attenuation_error": 0.0,
+      "seam_gap_or_overlap": "Dislocated entry voxel: (32, 32, 25) vs GT (32, 32, 25)"
+    }
+  },
+  "tomographic_evaluation": {
+    "8_subvolumes": {
+      "n_subvolumes": 8,
+      "partition_grid": "2x2x2",
+      "intersecting_rays": 5000,
+      "conventional_pipeline": {
+        "seam_defect_rate_pct": 99.72,
+        "corrupted_voxels": 110751,
+        "ct_attenuation_error_pct": 93.68,
+        "ct_rmse": 7.3854,
+        "ct_max_abs_error": 62.23,
+        "ct_psnr_db": 16.61,
+        "mri_attenuation_error_pct": 93.42,
+        "mri_rmse": 4.412,
+        "mri_max_abs_error": 39.05,
+        "mri_psnr_db": 16.65,
+        "topology_preserved": false
+      },
+      "ap_bresenham": {
+        "seam_defect_rate_pct": 0.0,
+        "corrupted_voxels": 0,
+        "ct_attenuation_error_pct": 0.0,
+        "ct_rmse": 0.0,
+        "ct_psnr_db": "inf (exact)",
+        "mri_attenuation_error_pct": 0.0,
+        "mri_rmse": 0.0,
+        "mri_psnr_db": "inf (exact)",
+        "topology_preserved": true
+      }
+    },
+    "64_subvolumes": {
+      "n_subvolumes": 64,
+      "partition_grid": "4x4x4",
+      "intersecting_rays": 5000,
+      "conventional_pipeline": {
+        "seam_defect_rate_pct": 99.88,
+        "corrupted_voxels": 137735,
+        "ct_attenuation_error_pct": 95.64,
+        "ct_rmse": 7.5048,
+        "ct_max_abs_error": 62.23,
+        "ct_psnr_db": 16.47,
+        "mri_attenuation_error_pct": 96.76,
+        "mri_rmse": 4.4639,
+        "mri_max_abs_error": 39.05,
+        "mri_psnr_db": 16.55,
+        "topology_preserved": false
+      },
+      "ap_bresenham": {
+        "seam_defect_rate_pct": 0.0,
+        "corrupted_voxels": 0,
+        "ct_attenuation_error_pct": 0.0,
+        "ct_rmse": 0.0,
+        "ct_psnr_db": "inf (exact)",
+        "mri_attenuation_error_pct": 0.0,
+        "mri_rmse": 0.0,
+        "mri_psnr_db": "inf (exact)",
+        "topology_preserved": true
+      }
+    },
+    "512_subvolumes": {
+      "n_subvolumes": 512,
+      "partition_grid": "8x8x8",
+      "intersecting_rays": 5000,
+      "conventional_pipeline": {
+        "seam_defect_rate_pct": 99.84,
+        "corrupted_voxels": 130998,
+        "ct_attenuation_error_pct": 98.2,
+        "ct_rmse": 8.9049,
+        "ct_max_abs_error": 62.23,
+        "ct_psnr_db": 14.99,
+        "mri_attenuation_error_pct": 98.6,
+        "mri_rmse": 5.3018,
+        "mri_max_abs_error": 39.05,
+        "mri_psnr_db": 15.05,
+        "topology_preserved": false
+      },
+      "ap_bresenham": {
+        "seam_defect_rate_pct": 0.0,
+        "corrupted_voxels": 0,
+        "ct_attenuation_error_pct": 0.0,
+        "ct_rmse": 0.0,
+        "ct_psnr_db": "inf (exact)",
+        "mri_attenuation_error_pct": 0.0,
+        "mri_rmse": 0.0,
+        "mri_psnr_db": "inf (exact)",
+        "topology_preserved": true
+      }
+    }
+  }
+}

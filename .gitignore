@@ -1,0 +1,32 @@
+# Compiled binaries and build directories
+build/
+bin/
+*.o
+*.obj
+*.exe
+native_benchmark
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+
+# LaTeX compilation artifacts
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.loa
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# OS artifacts
+.DS_Store
+Thumbs.db
