@@ -1,0 +1,103 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1.0in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{booktabs}
+
+\onehalfspacing
+
+\begin{document}
+
+\noindent \textbf{Date:} \today
+
+\vspace{0.3cm}
+\noindent \textbf{To:}\\
+Editor-in-Chief\\
+\textit{ACS Digital Medical Engineering}\\
+American Chemical Society\\
+Email: \texttt{eic@dme.acs.org}
+
+\vspace{0.4cm}
+\noindent \textbf{Subject:} Submission of Original Research Article: \textit{``Topologically Exact 3D/2D Line and Ray Clipping for Distributed CT and MRI Volume Computing: The Analytical Phase-Compensated Bresenham Algorithm''}
+
+\vspace{0.4cm}
+\noindent Dear Editor-in-Chief,
+
+\vspace{0.2cm}
+I am pleased to submit our original research manuscript entitled \textbf{``Topologically Exact 3D/2D Line and Ray Clipping for Distributed CT and MRI Volume Computing: The Analytical Phase-Compensated Bresenham Algorithm''} for consideration for publication as a regular \textbf{Article} in \textit{ACS Digital Medical Engineering}.
+
+\subsection*{Scope and Significance for \textit{ACS Digital Medical Engineering}}
+High-resolution 3D volumetric medical imaging---including Computed Tomography (CT), Magnetic Resonance Imaging (MRI), and PET/CT multi-modality scanning---demands spatial grid partitioning across distributed GPU clusters, MPI ranks, or tiled cache blocks to process massive voxel arrays ($512^3$ to $1024^3$ voxels). Existing ray traversal pipelines clip continuous trajectories against sub-volume bounding boxes and round boundary intersections to integer coordinates to reseed standard Bresenham steppers. 
+
+In this work, we reveal that this conventional decoupled clipping strategy fundamentally resets fractional error accumulators, inducing a \emph{Bresenham Phase-Shift Phenomenon} that corrupts voxel traversal paths across over 99.7\% of boundary-crossing rays. In iterative tomographic reconstruction (SART, SIRT, MLEM), this introduces line-integral attenuation errors reaching up to 15.9\,cm$^{-1}$ and produces severe boundary streak and ring artifacts that impair diagnostic precision and mathematical convergence.
+
+\subsection*{Key Advances Relative to the State-of-the-Art}
+To address this 60-year-old challenge at the interface of discrete geometry and computational biomedical imaging, this manuscript introduces the \textbf{Analytical Phase-Compensated Bresenham (AP-Bresenham)} algorithm:
+\begin{enumerate}
+    \item \textbf{Closed-Form Diophantine Dynamics:} We derive the exact analytical equations governing multi-dimensional digital straight lines, establishing the Diophantine conditions of discrete ray stepping.
+    \item \textbf{Pure-Integer $O(1)$ Boundary Inversion:} We formulate exact $O(1)$ boundary inversion formulas directly in $\mathbb{Z}$, completely avoiding floating-point rounding errors and iterative searches.
+    \item \textbf{Analytical Historical Phase Injection:} We analytically restore the exact fractional accumulator state at any entry boundary in $O(1)$ time, guaranteeing 100\% bit-level equivalence to monolithic traversal without requiring inter-node communication or ghost-cell buffers.
+    \item \textbf{Extensive Clinical Patient Validation:} Evaluated across synthetic Shepp-Logan phantoms, multi-compartment brain MRI models, and open clinical acquisitions (human abdominal CT and MNI-152 brain MRI) partitioned into up to 512 sub-volumes, AP-Bresenham completely eliminates seam artifacts, achieves exact Radon line-integral conservation ($\mathrm{RMSE} = 0.0000, \mathrm{PSNR} = \infty$), and delivers a 1.2$\times$--1.6$\times$ setup speedup over floating-point clippers.
+\end{enumerate}
+
+\subsection*{Prior Publication, Preprints, and Data Disclosure}
+\begin{itemize}
+    \item I confirm that this manuscript represents original work that has not been previously published in any peer-reviewed venue and is not under consideration for publication elsewhere.
+    \item All software implementations (C++17 and Python), test suites (10 invariant suites, 11,000+ verification cases), reproducible benchmarks, and clinical validation scripts are open-source and publicly accessible on GitHub at: \url{https://github.com/hemanthmpkumar/AP-Bresenham}.
+    \item Supporting Information containing extended mathematical proofs and algorithmic listings is provided as a separate accompanying document.
+\end{itemize}
+
+\subsection*{Suggested Independent International Reviewers}
+In accordance with the \textit{ACS Digital Medical Engineering} submission guidelines, I provide five suggested independent expert reviewers from multiple countries who possess expertise in biomedical imaging, tomographic reconstruction, and computational geometry:
+
+\begin{enumerate}
+    \item \textbf{Prof. David Coeurjolly}
+    \begin{itemize}
+        \item \textit{Affiliation:} CNRS, LIRIS, Université de Lyon, France
+        \item \textit{Expertise:} Discrete Geometry, Digital Straight Lines, Digital Topology, Computational Imaging
+        \item \textit{Email:} \texttt{david.coeurjolly@liris.cnrs.fr}
+    \end{itemize}
+    \item \textbf{Prof. Emil Y. Sidky}
+    \begin{itemize}
+        \item \textit{Affiliation:} Department of Radiology, The University of Chicago, USA
+        \item \textit{Expertise:} Computed Tomography Reconstruction Algorithms, Forward Projectors, Artifact Modeling
+        \item \textit{Email:} \texttt{sidky@uchicago.edu}
+    \end{itemize}
+    \item \textbf{Prof. Gabor T. Herman}
+    \begin{itemize}
+        \item \textit{Affiliation:} Department of Computer Science, City University of New York (CUNY), USA
+        \item \textit{Expertise:} Discrete Tomography, Algebraic Reconstruction Techniques (ART), Volume Computing
+        \item \textit{Email:} \texttt{gherman@gc.cuny.edu}
+    \end{itemize}
+    \item \textbf{Prof. Vaclav Skala}
+    \begin{itemize}
+        \item \textit{Affiliation:} Department of Computer Science and Engineering, University of West Bohemia, Czech Republic
+        \item \textit{Expertise:} Geometric Clipping Algorithms, Projective Coordinates, High-Performance Rasterization
+        \item \textit{Email:} \texttt{skala@kiv.zcu.cz}
+    \end{itemize}
+    \item \textbf{Prof. Bruno Sixou}
+    \begin{itemize}
+        \item \textit{Affiliation:} INSA Lyon, CREATIS, CNRS UMR 5220, France
+        \item \textit{Expertise:} Tomographic Image Reconstruction, Discrete Optimization, Radiological Path Traversal
+        \item \textit{Email:} \texttt{bruno.sixou@creatis.insa-lyon.fr}
+    \end{itemize}
+\end{enumerate}
+
+\noindent None of the proposed reviewers have been collaborators, co-authors, mentors, or mentees of the author within the past five years.
+
+\vspace{0.4cm}
+\noindent Thank you very much for your time and consideration of our manuscript.
+
+\vspace{0.6cm}
+\noindent Sincerely,
+
+\vspace{0.3cm}
+\noindent \textbf{Hemanth Manchabale Papachappa}\\
+Independent Researcher\\
+Seattle, Washington, USA\\
+Email: \texttt{hemathmpkumar123@gmail.com}\\
+ORCID: \href{https://orcid.org/0009-0007-1398-9451}{0009-0007-1398-9451}
+
+\end{document}

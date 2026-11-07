@@ -1,0 +1,156 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1.0in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{float}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+% S-numbering for SI elements
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\theequation}{S\arabic{equation}}
+\renewcommand{\thesection}{S\arabic{section}}
+
+\onehalfspacing
+
+\begin{document}
+
+\begin{center}
+    {\LARGE \textbf{Supporting Information}}\\[12pt]
+    {\Large \textbf{Topologically Exact 3D/2D Line and Ray Clipping for Distributed CT and MRI Volume Computing: The Analytical Phase-Compensated Bresenham Algorithm}}\\[14pt]
+    \textbf{Hemanth Manchabale Papachappa}\footnote{Corresponding Author. E-mail: \texttt{hemathmpkumar123@gmail.com}; ORCID: \href{https://orcid.org/0009-0007-1398-9451}{0009-0007-1398-9451}}\\[6pt]
+    \textit{Independent Researcher, Seattle, Washington, USA}
+\end{center}
+
+\vspace{0.8cm}
+\hrule
+\vspace{0.4cm}
+
+\tableofcontents
+
+\vspace{0.4cm}
+\hrule
+\vspace{0.8cm}
+
+% ==============================================================================
+% S1. EXTENDED MATHEMATICAL PROOFS
+% ==============================================================================
+\section{Extended Mathematical Proofs}
+\label{sec:si_proofs}
+
+\subsection{Proof of Lemma 1 (Closed-Form Discrete Coordinate Dynamics)}
+Let a 3D digital ray have integer endpoints $\mathbf{P}_0 = (x_0, y_0, z_0)$ and $\mathbf{P}_1 = (x_1, y_1, z_1)$ with $\Delta x \ge \Delta y, \Delta z \ge 0$ in canonical Octant 1.
+The midpoint formulation of the discrete line evaluates at step $k = x - x_0 \in [0, \Delta x]$:
+\begin{equation}
+    y(k) = y_0 + \sum_{j=0}^{k-1} \mathbb{I}(D_{1,j} > 0).
+\end{equation}
+The continuous ray satisfies $y_{\mathrm{ideal}}(k) = y_0 + \frac{\Delta y}{\Delta x}k$. The discrete decision condition at step $j$ checks whether the continuous ray strictly crosses the candidate voxel midpoint $y_j + \frac{1}{2}$:
+\begin{equation}
+    y_0 + \frac{\Delta y}{\Delta x}j > y_j + \frac{1}{2} \iff 2\Delta y \cdot j - 2\Delta x (y_j - y_0) - \Delta x > 0.
+\end{equation}
+By linear induction, $y_j - y_0$ increments at exactly those indices where the ideal line exceeds the midpoint. In integer arithmetic over $\mathbb{Z}$, the strict inequality $u > v + 1/2$ is equivalent to $u \ge v + 1/2 + \epsilon$, which transforms under integer floor division to:
+\begin{equation}
+    y(k) = y_0 + \left\lfloor \frac{2\Delta y \cdot k + \Delta x - 1}{2\Delta x} \right\rfloor.
+\end{equation}
+Subtracting $1$ in the numerator guarantees that exact mathematical ties ($y(x) = y + 1/2$) evaluate to the lower integer, replicating standard Bresenham tie-breaking behavior for all $k \in \mathbb{N}$. An identical construction applies to $z(k)$:
+\begin{equation}
+    z(k) = z_0 + \left\lfloor \frac{2\Delta z \cdot k + \Delta x - 1}{2\Delta x} \right\rfloor.
+\end{equation}
+\qed
+
+\subsection{Proof of Lemma 2 (Closed-Form Accumulated Error States)}
+The initial Bresenham error state at $k=0$ is $D_{1,0} = 2\Delta y - \Delta x$. At each step $j \to j+1$, $D_1$ undergoes the transition:
+\begin{equation}
+    D_{1,j+1} = D_{1,j} + 2\Delta y - 2\Delta x \cdot \Delta y_j,
+\end{equation}
+where $\Delta y_j = y_{j+1} - y_j \in \{0, 1\}$. Summing this telescoping recurrence from $j=0$ to $k-1$:
+\begin{equation}
+    D_1(k) = D_{1,0} + \sum_{j=0}^{k-1} 2\Delta y - \sum_{j=0}^{k-1} 2\Delta x \cdot \Delta y_j = (2\Delta y - \Delta x) + 2\Delta y \cdot k - 2\Delta x (y(k) - y_0).
+\end{equation}
+Because integer additions commute and associate in $\mathbb{Z}$, this closed-form expression evaluates the exact register state directly at any arbitrary step index $k$ in $O(1)$ operations, without evaluating any intermediate steps. By symmetric argument, the dual accumulator $D_2(k)$ satisfies:
+\begin{equation}
+    D_2(k) = (2\Delta z - \Delta x) + 2\Delta z \cdot k - 2\Delta x (z(k) - z_0).
+\end{equation}
+\qed
+
+% ==============================================================================
+% S2. COMPLETE 3D AP-BRESENHAM ALGORITHM
+% ==============================================================================
+\section{Complete Algorithmic Implementation Details}
+\label{sec:si_algo}
+
+\begin{figure}[H]
+\centering
+\fbox{
+\parbox{0.95\textwidth}{
+\textbf{Algorithm S1: 3D AP-Bresenham Sub-Volume Ray Traversal}\\
+\textbf{Input:} Global line endpoints $\mathbf{P}_0, \mathbf{P}_1 \in \mathbb{Z}^3$; sub-volume bounds $[X_{\min}, X_{\max}] \times [Y_{\min}, Y_{\max}] \times [Z_{\min}, Z_{\max}]$.\\
+\textbf{Output:} Ordered sequence of traversed 26-connected voxels $\mathcal{V} \subset \mathbb{Z}^3$.\\
+\textbf{Procedure:}
+\begin{enumerate}
+    \item Determine major axis and signs:
+    \begin{itemize}
+        \item $\Delta x = |x_1 - x_0|, \Delta y = |y_1 - y_0|, \Delta z = |z_1 - z_0|$.
+        \item Identify primary driving axis $\Delta_{\mathrm{maj}} = \max(\Delta x, \Delta y, \Delta z)$ and secondary axes $\Delta_{\mathrm{min1}}, \Delta_{\mathrm{min2}}$.
+        \item Map local bounding box to canonical relative bounds $w_{m,\min}, w_{m,\max}$.
+    \end{itemize}
+    \item Compute Diophantine entry/exit bounds along each axis in $O(1)$:
+    \begin{align*}
+        k_{\mathrm{maj},\min} &= \max(0, w_{\mathrm{maj},\min}), \quad k_{\mathrm{maj},\max} = \min(\Delta_{\mathrm{maj}}, w_{\mathrm{maj},\max}) \\
+        k_{1,\min} &= \left\lceil \frac{2\Delta_{\mathrm{maj}} \cdot w_{1,\min} - \Delta_{\mathrm{maj}} + 1}{2\Delta_{\mathrm{min1}}} \right\rceil, \quad k_{1,\max} = \left\lfloor \frac{2\Delta_{\mathrm{maj}} \cdot (w_{1,\max} + 1) - \Delta_{\mathrm{maj}}}{2\Delta_{\mathrm{min1}}} \right\rfloor \\
+        k_{2,\min} &= \left\lceil \frac{2\Delta_{\mathrm{maj}} \cdot w_{2,\min} - \Delta_{\mathrm{maj}} + 1}{2\Delta_{\mathrm{min2}}} \right\rceil, \quad k_{2,\max} = \left\lfloor \frac{2\Delta_{\mathrm{maj}} \cdot (w_{2,\max} + 1) - \Delta_{\mathrm{maj}}}{2\Delta_{\mathrm{min2}}} \right\rfloor
+    \end{align*}
+    \item Intersect intervals:
+    $$k_{\mathrm{start}} = \max(k_{\mathrm{maj},\min}, k_{1,\min}, k_{2,\min}), \quad k_{\mathrm{end}} = \min(k_{\mathrm{maj},\max}, k_{1,\max}, k_{2,\max})$$
+    \textbf{if} $k_{\mathrm{start}} > k_{\mathrm{end}}$ \textbf{then return} $\emptyset$ (ray misses sub-volume).
+    \item Analytically inject entry voxel and decision accumulators:
+    \begin{align*}
+        m_{1,\mathrm{rel}} &= \left\lfloor \frac{2\Delta_{\mathrm{min1}} \cdot k_{\mathrm{start}} + \Delta_{\mathrm{maj}} - 1}{2\Delta_{\mathrm{maj}}} \right\rfloor, \quad m_{2,\mathrm{rel}} = \left\lfloor \frac{2\Delta_{\mathrm{min2}} \cdot k_{\mathrm{start}} + \Delta_{\mathrm{maj}} - 1}{2\Delta_{\mathrm{maj}}} \right\rfloor \\
+        D_{1,\mathrm{start}} &= (2\Delta_{\mathrm{min1}} - \Delta_{\mathrm{maj}}) + 2\Delta_{\mathrm{min1}} \cdot k_{\mathrm{start}} - 2\Delta_{\mathrm{maj}} \cdot m_{1,\mathrm{rel}} \\
+        D_{2,\mathrm{start}} &= (2\Delta_{\mathrm{min2}} - \Delta_{\mathrm{maj}}) + 2\Delta_{\mathrm{min2}} \cdot k_{\mathrm{start}} - 2\Delta_{\mathrm{maj}} \cdot m_{2,\mathrm{rel}}
+    \end{align*}
+    \item Step discrete walker from $k = k_{\mathrm{start}}$ to $k_{\mathrm{end}}$ using standard integer increments ($+2\Delta_{\mathrm{min}}, -2\Delta_{\mathrm{maj}}$), emitting un-mapped world voxel coordinates at each step.
+\end{enumerate}
+}}
+\caption{Pseudocode for 3D Analytical Phase-Compensated Bresenham (AP-Bresenham).}
+\label{fig:si_algorithm}
+\end{figure}
+
+% ==============================================================================
+% S3. EXTENDED ABLATION BENCHMARKS
+% ==============================================================================
+\section{Extended Ablation Benchmarks across Partition Scales}
+\label{sec:si_ablations}
+
+Table~\ref{tab:si_ablations} provides detailed scaling metrics across 8, 27, 64, 125, 216, 343, and 512 distributed sub-volumes, comparing conventional slab-clipping and AP-Bresenham on the 3D Shepp-Logan CT head phantom ($N = 10,000$ multi-angle rays).
+
+\begin{table}[H]
+\centering
+\caption{\textbf{Extended Multi-Scale Scaling Ablation Study ($N = 10,000$ multi-angle projection rays).}}
+\label{tab:si_ablations}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{rcccccc}
+\toprule
+\textbf{Sub-Volumes} & \textbf{Grid Partition} & \multicolumn{2}{c}{\textbf{Slab-Clip + Reseed (Conventional)}} & \multicolumn{2}{c}{\textbf{3D AP-Bresenham (Ours)}} & \textbf{Setup Speedup} \\
+\cmidrule(lr){3-4} \cmidrule(lr){5-6}
+& & \textbf{Seam Defect Rate} & \textbf{CT RMSE / PSNR} & \textbf{Seam Defect Rate} & \textbf{CT RMSE / PSNR} & \\
+\midrule
+8 chunks & $2 \times 2 \times 2$ & 99.72\% & 7.39 / 16.6 dB & \textbf{0.00\%} & \textbf{0.00 / $\infty$} & 1.20$\times$ \\
+27 chunks & $3 \times 3 \times 3$ & 99.81\% & 7.44 / 16.5 dB & \textbf{0.00\%} & \textbf{0.00 / $\infty$} & 1.22$\times$ \\
+64 chunks & $4 \times 4 \times 4$ & 99.88\% & 7.50 / 16.5 dB & \textbf{0.00\%} & \textbf{0.00 / $\infty$} & 1.21$\times$ \\
+125 chunks & $5 \times 5 \times 5$ & 99.85\% & 8.12 / 15.8 dB & \textbf{0.00\%} & \textbf{0.00 / $\infty$} & 1.23$\times$ \\
+216 chunks & $6 \times 6 \times 6$ & 99.86\% & 8.41 / 15.5 dB & \textbf{0.00\%} & \textbf{0.00 / $\infty$} & 1.24$\times$ \\
+343 chunks & $7 \times 7 \times 7$ & 99.84\% & 8.65 / 15.2 dB & \textbf{0.00\%} & \textbf{0.00 / $\infty$} & 1.25$\times$ \\
+512 chunks & $8 \times 8 \times 8$ & 99.84\% & 8.90 / 15.0 dB & \textbf{0.00\%} & \textbf{0.00 / $\infty$} & 1.25$\times$ \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\end{document}

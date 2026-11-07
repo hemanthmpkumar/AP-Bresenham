@@ -36,6 +36,13 @@ AP-Bresenham resolves this challenge by deriving the closed-form Diophantine sta
 ```text
 2Dlineclipping/
 ├── paper/                                  # Research manuscripts & LaTeX source
+│   ├── acs_digital_medical_engineering/    # ACS Digital Medical Engineering (Fast Format submission package)
+│   │   ├── main_manuscript.tex / .pdf      # Main research article (1.5 spaced, line numbers)
+│   │   ├── supporting_information.tex/.pdf # Standalone Supporting Information (SI)
+│   │   ├── cover_letter.tex / .pdf         # Formal Editor-in-Chief cover letter (5 reviewers)
+│   │   ├── toc_graphic.tex / .pdf / .png   # Table of Contents graphic (strictly 3.25" x 1.75")
+│   │   ├── Makefile                        # Standalone build automation
+│   │   └── README.md                       # Submission guideline checklist & notes
 │   ├── icccs2027_conference/
 │   │   ├── icccs2027_paper.tex             # IEEE Conference format submission (ICCCS 2027)
 │   │   ├── icccs2027_paper.pdf             # Compiled publication PDF
