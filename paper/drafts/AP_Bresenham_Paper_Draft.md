@@ -1,6 +1,6 @@
 # Topologically Exact 2D Line Clipping on Pixel Grids: The Analytical Phase-Compensated Bresenham Algorithm
 
-**Authors:** Research Draft  
+**Author:** Hemanth Manchabale Papachappa (Independent Researcher, Seattle, WA, USA --- \texttt{hemathmpkumar123@gmail.com}, ORCID: 0009-0007-1398-9451)  
 **Target Venue:** IEEE Transactions on Visualization and Computer Graphics (TVCG) / Computer Graphics Forum (CGF) / Discrete Applied Mathematics  
 
 ---
